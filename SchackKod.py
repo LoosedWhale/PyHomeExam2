@@ -5,7 +5,7 @@ import tkinter
 
 # Create a window
 root = tkinter.Tk()
-display = tkinter.Canvas(root, width=50, height=50)
+display = tkinter.Canvas(root, width=0, height=0)
 display.pack()
 
 # Create a 8x8 grid
