@@ -34,21 +34,7 @@ class Pawn(Piece):
         super().__init__(color, position)
         
     def move(self, new_position):
-        row, col = new_position
-        curr_row, curr_col = self.position
-        
-        if self.color == 'white':
-            if row == curr_row - 1 and col == curr_col:
-                return True
-            elif row == curr_row - 2 and col == curr_col and curr_row == 6:
-                return True
-        else:
-            if row == curr_row + 1 and col == curr_col:
-                return True
-            elif row == curr_row + 2 and col == curr_col and curr_row == 1:
-                return True
-                
-        return False
+        pass
 
 # define a class for knight
 class Knight(Piece):
@@ -56,20 +42,7 @@ class Knight(Piece):
         super().__init__(color, position)
         
     def move(self, new_position):
-        row, col = new_position
-        curr_row, curr_col = self.position
-        
-        if (row == curr_row + 2 and col == curr_col + 1) or \
-           (row == curr_row + 2 and col == curr_col - 1) or \
-           (row == curr_row - 2 and col == curr_col + 1) or \
-           (row == curr_row - 2 and col == curr_col - 1) or \
-           (row == curr_row + 1 and col == curr_col + 2) or \
-           (row == curr_row + 1 and col == curr_col - 2) or \
-           (row == curr_row - 1 and col == curr_col + 2) or \
-           (row == curr_row - 1 and col == curr_col - 2):
-            return True
-        
-        return False
+        pass
 
 # define a class for bishop
 
@@ -78,11 +51,7 @@ class Bishop(Piece):
         super().__init__(color, position)
 
     def move(self, new_position):
-        row, col = new_position
-        curr_row, curr_col = self.position
-
-        if abs(row - curr_row) == abs(col - curr_col):
-            return
+        pass
 
 # define a class for rook
 class Rook(Piece):
@@ -90,39 +59,21 @@ class Rook(Piece):
         super().__init__(color, position)
         
     def move(self, new_position):
-        row, col = new_position
-        curr_row, curr_col = self.position
-        
-        if row == curr_row or col == curr_col:
-            return True
-        return False
-
+        pass
 # define a class for queen
 class Queen(Piece):
     def __init__(self, color, position):
         super().__init__(color, position)
         
     def move(self, new_position):
-        row, col = new_position
-        curr_row, curr_col = self.position
-        
-        if row == curr_row or col == curr_col or \
-           abs(row - curr_row) == abs(col - curr_col):
-            return True
-        return False
-
+        pass
 # define a class for king
 class King(Piece):
     def __init__(self, color, position):
         super().__init__(color, position)
         
     def move(self, new_position):
-        row, col = new_position
-        curr_row, curr_col = self.position
-        
-        if abs(row - curr_row) <= 1 and abs(col - curr_col) <= 1:
-            return True
-        return False
+        pass
 
 # define a class for the chess board and set up the pieces on the board. 
 class ChessBoard:
