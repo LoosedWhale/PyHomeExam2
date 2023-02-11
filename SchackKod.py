@@ -1,3 +1,6 @@
+#Note that this is a mock up of what for the games features.
+#Not actal code for a Chess game.
+
 import tkinter
 
 # Create a window
