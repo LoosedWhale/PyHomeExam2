@@ -20,20 +20,20 @@ class Dessert:
         self.price = price
 
 
-foods = [Food("Hamburger", 50),
-         Food("Pizza", 110),
-         Food("Sushi", 150),
-         Food("Tacos", 70)]
+foods = [Food("Pizza", 75),
+         Food("Fake-biff", 100),
+         Food("Soppa", 60),
+         Food("Biff", 165)]
 
-drinks = [Drink("Soda", 10),
-          Drink("Water", 5),
-          Drink("Juice", 8),
-          Drink("Coffee", 20)]
+drinks = [Drink("Vatten", 45),
+          Drink("Coca-cola", 55),
+          Drink("Öl", 95),
+          Drink("Vin", 100)]
 
-desserts = [Dessert("Ice Cream", 25),
-            Dessert("Cake", 30),
-            Dessert("Fruit Salad", 15),
-            Dessert("Chocolate", 10)]
+desserts = [Dessert("Paj", 65),
+            Dessert("Glass", 55),
+            Dessert("Choklad", 30),
+            Dessert("Tårta", 65)]
 
 class CTkOptionMenu(tkinter.OptionMenu):
     def __init__(self, master, values, command):
