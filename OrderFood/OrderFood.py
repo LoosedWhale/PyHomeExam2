@@ -101,23 +101,23 @@ class App(customtkinter.CTk):
         self.FoodL = customtkinter.CTkLabel(master=self, text="Food:", font= (None, 18), width = 10)
         self.FoodL.grid(row=0, column=0, padx = 20, pady = 10, sticky="nsew")
 
-        food_options = [(food.name, food.price) for food in foods]
-        self.FoodOM = CTkOptionMenu(self, values=food_options, command=self.optionmenuCallback)
+        foodOptions = [(food.name, food.price) for food in foods]
+        self.FoodOM = CTkOptionMenu(self, values=foodOptions, command=self.optionmenuCallback)
         self.FoodOM.grid(row=1, column=0, padx=10, pady = 10, sticky="n")
     
 
         self.DrinkL = customtkinter.CTkLabel(master=self, text="Drink:", font= (None, 18), width = 10)
         self.DrinkL.grid(row=0, column=1, padx = 20, pady = 10, sticky="nsew")
         
-        drink_options = [(drink.name, drink.price) for drink in drinks]
-        self.DrinkOM = CTkOptionMenu(self, values=drink_options, command=self.optionmenuCallback)
+        drinkOptions = [(drink.name, drink.price) for drink in drinks]
+        self.DrinkOM = CTkOptionMenu(self, values=drinkOptions, command=self.optionmenuCallback)
         self.DrinkOM.grid(row=1, column=1, padx=10, pady = 10, sticky="n")
 
         self.DessertL = customtkinter.CTkLabel(master=self, text="Dessert:", font= (None, 18), width = 10)
         self.DessertL.grid(row=0, column=2, padx = 20, pady = 10, sticky="nsew")
 
-        dessert_options = [(dessert.name, dessert.price) for dessert in desserts]
-        self.DessertOM = CTkOptionMenu(self, values=dessert_options, command=self.optionmenuCallback)
+        dessertOptions = [(dessert.name, dessert.price) for dessert in desserts]
+        self.DessertOM = CTkOptionMenu(self, values=dessertOptions, command=self.optionmenuCallback)
         self.DessertOM.grid(row=1, column=2, padx=10, pady = 10, sticky="n")
 
 
