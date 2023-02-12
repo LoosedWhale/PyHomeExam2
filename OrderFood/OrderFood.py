@@ -38,19 +38,15 @@ desserts = [Dessert("Ice Cream", 25),
 class CTkOptionMenu(tkinter.OptionMenu):
     def __init__(self, master, values, command):
         self._var = tkinter.StringVar()
-        self._var.set(values[0])
-        super().__init__(master, self._var, *values, command=command)
+        self._var.set(values[0][0])
+        super().__init__(master, self._var, *values, command=lambda x: command(self._var.get()))
 
     def get(self):
         return self._var.get()
 
-    def _button_callback(self, value):
-        self._command(value[0,1])
-        print(f"Namn: {value[0]}, Pris: {value[1]}")
-        self._dropdown_callback(self._current_value)
 
 
-    
+""" 
 
 class App(customtkinter.CTk):
     def __init__(self):
@@ -89,6 +85,50 @@ class App(customtkinter.CTk):
 
     def optionmenuCallback(self, choice):
         print("You have picked:", choice)
+
+
+
+"""
+
+class App(customtkinter.CTk):
+    def __init__(self):
+        super().__init__()
+        self.geometry("480x400")
+        self.title("Order Food")
+        self.maxsize(480, 400)
+        self.minsize(480, 400)
+
+        self.FoodL = customtkinter.CTkLabel(master=self, text="Food:", font= (None, 18), width = 10)
+        self.FoodL.grid(row=0, column=0, padx = 20, pady = 10, sticky="nsew")
+
+        food_options = [(food.name, food.price) for food in foods]
+        self.FoodOM = CTkOptionMenu(self, values=food_options, command=self.optionmenuCallback)
+        self.FoodOM.grid(row=1, column=0, padx=10, pady = 10, sticky="n")
+    
+
+        self.DrinkL = customtkinter.CTkLabel(master=self, text="Drink:", font= (None, 18), width = 10)
+        self.DrinkL.grid(row=0, column=1, padx = 20, pady = 10, sticky="nsew")
+        
+        drink_options = [(drink.name, drink.price) for drink in drinks]
+        self.DrinkOM = CTkOptionMenu(self, values=drink_options, command=self.optionmenuCallback)
+        self.DrinkOM.grid(row=1, column=1, padx=10, pady = 10, sticky="n")
+
+        self.DessertL = customtkinter.CTkLabel(master=self, text="Dessert:", font= (None, 18), width = 10)
+        self.DessertL.grid(row=0, column=2, padx = 20, pady = 10, sticky="nsew")
+
+        dessert_options = [(dessert.name, dessert.price) for dessert in desserts]
+        self.DessertOM = CTkOptionMenu(self, values=dessert_options, command=self.optionmenuCallback)
+        self.DessertOM.grid(row=1, column=2, padx=10, pady = 10, sticky="n")
+
+
+    # add methods to app
+    def buttonClick(self):
+        print("button click")
+
+    def optionmenuCallback(self, choice):
+        print("You have picked:", choice)
+
+
 
 app = App()
 app.mainloop()
