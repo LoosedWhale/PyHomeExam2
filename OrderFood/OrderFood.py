@@ -119,8 +119,6 @@ class App(customtkinter.CTk):
         self.DessertOM = CTkOptionMenu(self, values=dessertOptions, command=lambda x: self.optionmenuCallback(x, 'dessert'))
         self.DessertOM.grid(row=1, column=2, padx=10, pady = 10, sticky="n")
 
-        self.stringvar = tkinter.StringVar()
-
         self.textbox = customtkinter.CTkTextbox(master=self, width=30, height=100, corner_radius=5)
         self.textbox.grid(row=2, column=0, columnspan=3, padx=10, pady=10, sticky="nsew")
         self.textbox.insert("0.0", self.optionmenuCallback)
