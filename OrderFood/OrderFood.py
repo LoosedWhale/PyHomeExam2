@@ -123,7 +123,7 @@ class App(customtkinter.CTk):
 
         self.textbox = customtkinter.CTkTextbox(master=self, width=30, height=100, corner_radius=5)
         self.textbox.grid(row=2, column=0, columnspan=3, padx=10, pady=10, sticky="nsew")
-        self.textbox.insert("0.0", "Some example text!\n")
+        self.textbox.insert("0.0", self.optionmenuCallback)
         
     # add methods to app
     def buttonClick(self):
@@ -141,6 +141,7 @@ class App(customtkinter.CTk):
         for item in items:
             if item.name == choice:
                 self.textbox.insert("end", f"{item.name} {item.price}kr ")
+        return self.textbox.insert("end", f"{item.name} {item.price}kr ")
         print("You have picked:", choice)
 
 
