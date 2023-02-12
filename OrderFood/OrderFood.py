@@ -130,19 +130,20 @@ class App(customtkinter.CTk):
         print("button click")
 
  
-    def optionmenuCallback(self, choice, item_type):
-        if item_type == 'food':
+    def optionmenuCallback(self, choice, itemType):
+        if itemType == 'food':
             items = foods
-        elif item_type == 'drink':
+        elif itemType == 'drink':
             items = drinks
-        elif item_type == 'dessert':
+        elif itemType == 'dessert':
             items = desserts
 
         for item in items:
             if item.name == choice:
                 self.textbox.insert("end", f"{item.name} {item.price}kr ")
-        return self.textbox.insert("end", f"{item.name} {item.price}kr ")
         print("You have picked:", choice)
+        return self.textbox.insert("end", f"{item.name} {item.price}kr ")
+    
 
 
 app = App()
