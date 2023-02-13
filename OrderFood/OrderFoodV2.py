@@ -4,7 +4,7 @@ import tkinter as tk
 size = "400x400"
 app = tk.Tk()
 app.title("Order Food")
-app.geometry()
+app.geometry(size)
 
 
 
@@ -61,25 +61,28 @@ class orderableItem:
 
 frame1 = Frame(app)
 frame2= Frame(app)
-
-#knapp1 = Button(frame1, text="Knapp1")
-#knapp2= Button(frame1, text="Knapp2")
-
-#knapp3 = Button(frame2, text="Knapp3")
-#knapp4= Button(frame2, text="Knapp4")
-
-#knapp1.pack()
-#knapp2.pack()
-#knapp3.pack()
-#knapp4.pack()
+frame3 = Frame(app)
 
 frame1.pack(side=LEFT)
-frame2.pack(side=RIGHT)
+frame2.pack(side=LEFT)
+frame3.pack(side=LEFT)
 
-Öl = orderableItem("Öl", 50, frame1)
-Vatten = orderableItem("Vatten", 45, frame1)
-Kaffe = orderableItem("Vin", 30, app)
-CocaCola = orderableItem("CocaCola", 25, app)
+Beer = orderableItem("Öl", 95, frame1)
+Water = orderableItem("Vatten", 45, frame1)
+Wine = orderableItem("Vin", 100, frame1)
+CocaCola = orderableItem("CocaCola", 55, frame1)
+
+Pizza = orderableItem("Pizza", 75, frame2)
+VBiff = orderableItem("Fake-biff", 100, frame2)
+Soup = orderableItem("Soppa", 60, frame2)
+Biff = orderableItem("Biff", 165, frame2)
+
+Paj = orderableItem("Paj", 65, frame3)
+Icecream = orderableItem("Glass", 55, frame3)
+Chocolate = orderableItem("Choklad", 30, frame3)
+Cake = orderableItem("Tårta", 65, frame3)
+
+
 
 
 
