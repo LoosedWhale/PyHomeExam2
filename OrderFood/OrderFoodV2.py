@@ -1,12 +1,11 @@
 from tkinter import *
 import tkinter as tk
 
-size = "400x400"
+size = "650x245"
 app = tk.Tk()
 app.title("Order Food")
-app.geometry()
-
-
+app.geometry(size)
+#app.resizable(False, False)
 
 
 class orderableItem:
@@ -20,19 +19,18 @@ class orderableItem:
         self.Remove.configure(command=self.remove)
 
 
-
     def draw(self, frame):
-        self.namelabel = tk.Label(frame, text=self.name)
-        self.Add = tk.Button(frame, text=" + ")
-        self.Remove = tk.Button(frame, text=" - ")
-        self.priceLabel = tk.Label(frame, text=str(self.price) + "kr")
-        self.quantityLabel = tk.Label(frame, text=str(self.quantity))
+        self.nameLabel = Label(frame, text=self.name)
+        self.Add = Button(frame, text=" + ")
+        self.Remove = Button(frame, text=" - ")
+        self.priceLabel = Label(frame, text=str(self.price) + "kr")
+        self.quantityLabel = Label(frame, text=str(self.quantity))
 
-        self.namelabel.pack(side = tk.LEFT, padx = 10)
-        self.Add.pack(side = tk.LEFT, padx = 2)
-        self.Remove.pack(side = tk.LEFT, padx = 2)
-        self.priceLabel.pack(side = tk.LEFT)
-        self.quantityLabel.pack(side = tk.LEFT)
+        self.nameLabel.pack(side = LEFT, padx = 10)
+        self.Add.pack(side = LEFT, padx = 2)
+        self.Remove.pack(side = LEFT, padx = 2)
+        self.priceLabel.pack(side = LEFT)
+        self.quantityLabel.pack(side = LEFT)
 
         self.frame.pack()
 
@@ -53,33 +51,30 @@ class orderableItem:
         return self.name
 
 
-           
+f1 = Frame(app)
+f2= Frame(app)
+f3 = Frame(app) 
+f4 = Frame(app)
 
+f1.pack(side=LEFT)
+f2.pack(side=LEFT)
+f3.pack(side=LEFT)
+f4.pack(side=RIGHT)
 
-frame1 = Frame(app)
-frame2= Frame(app)
-frame3 = Frame(app) 
-frame4 = Frame(app)
+Beer = orderableItem("Öl       ", 95, f1)
+Water = orderableItem("Vatten", 45, f1)
+Wine = orderableItem("Vin       ", 100, f1)
+CocaCola = orderableItem("Cola  ", 55, f1)
 
-frame1.pack(side=LEFT)
-frame2.pack(side=LEFT)
-frame3.pack(side=LEFT)
-frame4.pack(side=RIGHT)
+Pizza = orderableItem("Pizza ", 75, f2)
+VBiff = orderableItem("V.biff   ", 100, f2)
+Soup = orderableItem("Soppa", 60, f2)
+Biff = orderableItem("Biff       ", 165, f2)
 
-Beer = orderableItem("Öl", 95, frame1)
-Water = orderableItem("Vatten", 45, frame1)
-Wine = orderableItem("Vin", 100, frame1)
-CocaCola = orderableItem("CocaCola", 55, frame1)
-
-Pizza = orderableItem("Pizza", 75, frame2)
-VBiff = orderableItem("Fake-biff", 100, frame2)
-Soup = orderableItem("Soppa", 60, frame2)
-Biff = orderableItem("Biff", 165, frame2)
-
-Paj = orderableItem("Paj", 65, frame3)
-IceCream = orderableItem("Glass", 55, frame3)
-Chocolate = orderableItem("Choklad", 30, frame3)
-Cake = orderableItem("Tårta", 65, frame3)
+Paj = orderableItem("Paj        ", 65, f3)
+IceCream = orderableItem("Glass     ", 55, f3)
+Chocolate = orderableItem("Choklad", 30, f3)
+Cake = orderableItem("Tårta      ", 65, f3)
 
 def getTotal():
     total = 0
@@ -98,29 +93,29 @@ def getTotal():
     total += Cake.getPriceTotal()
 
     if Beer.quantity > 0:
-        foodNames += Beer.getName() + " "
+        foodNames += Beer.getName() + " \n"
     if Water.quantity > 0:
-        foodNames += Water.getName() + " "
+        foodNames += Water.getName() + " \n"
     if Wine.quantity > 0:
-        foodNames += Wine.getName() + " "
+        foodNames += Wine.getName() + " \n"
     if CocaCola.quantity > 0:
-        foodNames += CocaCola.getName() + " "
+        foodNames += CocaCola.getName() + " \n"
     if Pizza.quantity > 0:
-        foodNames += Pizza.getName() + " "
+        foodNames += Pizza.getName() + " \n"
     if VBiff.quantity > 0:
-        foodNames += VBiff.getName() + " "
+        foodNames += VBiff.getName() + " \n"
     if Soup.quantity > 0:
-        foodNames += Soup.getName() + " "
+        foodNames += Soup.getName() + " \n"
     if Biff.quantity > 0:
-        foodNames += Biff.getName() + " "
+        foodNames += Biff.getName() + " \n"
     if Paj.quantity > 0:
-        foodNames += Paj.getName() + " "
+        foodNames += Paj.getName() + " \n"
     if IceCream.quantity > 0:
-        foodNames += IceCream.getName() + " "
+        foodNames += IceCream.getName() + " \n"
     if Chocolate.quantity > 0:
-        foodNames += Chocolate.getName() + " "
+        foodNames += Chocolate.getName() + " \n"
     if Cake.quantity > 0:
-        foodNames += Cake.getName() + " "
+        foodNames += Cake.getName() + " \n"
         
 
     formatTotal = "Total: " + str(total) + " kr"  "\n"+  str(foodNames + " ")
@@ -133,10 +128,10 @@ def getTotal():
         OrderText.delete(0.0, END)
         OrderText.insert(0.0 , formatTotal)
 
-Order = Button(frame4, text="Order", command=getTotal)
+Order = Button(f4, text="Order", command=getTotal)
 Order.pack(side=BOTTOM)
 
-OrderText = Text(frame4, height=10, width=30)
+OrderText = Text(f4, height=55, width=15)
 OrderText.pack()
 OrderText.insert(END, "Order: ")
 
