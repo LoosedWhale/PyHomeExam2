@@ -1,12 +1,12 @@
 from tkinter import *
 import tkinter as tk
 
-size = "650x245"
+size = "345x490"
 app = tk.Tk()
 app.title("Order Food")
 app.geometry(size)
 #app.resizable(False, False)
-
+app.configure(background="#292929")
 
 class orderItem:
     def __init__(self, name, price, frame, quantity = 0):
@@ -20,17 +20,20 @@ class orderItem:
 
 
     def draw(self, frame):
-        self.nameLabel = Label(frame, text=self.name)
-        self.Add = Button(frame, text=" + ")
-        self.Remove = Button(frame, text=" - ")
-        self.priceLabel = Label(frame, text=str(self.price) + "kr")
-        self.quantityLabel = Label(frame, text=str(self.quantity))
+        self.nameLabel = Label(frame, text=self.name, bg="#292929", fg="Gold")
+        self.Add = Button(frame, text="  +  ", bg="#292929", fg="Green", activeforeground="#292929", activebackground="Green")
+        self.Remove = Button(frame, text="   -   ", bg="#292929", fg="Red", activeforeground="#292929", activebackground="Red")
+        self.priceLabel = Label(frame, text=str(self.price) + "kr", bg="#292929", fg="Gold")
+        self.quantityLabel = Label(frame, text=str(self.quantity), bg="#292929", fg="Gold")
+        self.Line = Label(frame, text="___________", bg="#292929", fg="Gold")
 
-        self.nameLabel.pack(side = LEFT, padx = 10)
-        self.Add.pack(side = LEFT, padx = 2)
-        self.Remove.pack(side = LEFT, padx = 2)
-        self.priceLabel.pack(side = LEFT)
-        self.quantityLabel.pack(side = LEFT)
+        self.nameLabel.pack(side = TOP, fill=X)
+        self.priceLabel.pack(side = TOP, fill=X)
+        self.Line.pack(side = BOTTOM, fill=X)
+        self.quantityLabel.pack(side = BOTTOM, fill=X)
+        self.Add.pack(side = LEFT, fill=X)
+        self.Remove.pack(side = LEFT, fill=X)
+  
 
         self.frame.pack()
 
@@ -51,30 +54,51 @@ class orderItem:
         return self.name
 
 
-f1 = Frame(app)
-f2= Frame(app)
-f3 = Frame(app) 
-f4 = Frame(app)
+f1 = Frame(app, bg="#292929")
+f2= Frame(app,  bg="#292929")
+f3 = Frame(app, bg="#292929") 
+f4 = Frame(app, bg="#292929")
 
-f1.pack(side=LEFT)
-f2.pack(side=LEFT)
-f3.pack(side=LEFT)
-f4.pack(side=RIGHT)
+f1.pack(side=LEFT, anchor=  W)
+f2.pack(side=LEFT, anchor=  W)
+f3.pack(side=LEFT, anchor=  W)
+f4.pack(side=LEFT, anchor=  W)
 
-Beer = orderItem("Öl       ", 95, f1)
+
+MainDishL = Label(f1, text="Main Dish >", bg="#292929", fg="CadetBlue4")
+MainDishL.pack()
+LineMDL = Label(f1, text="___________", bg="#292929", fg="Gold")
+LineMDL.pack()
+
+DrinkL = Label(f2, text="Drink >>", bg="#292929", fg="CadetBlue3")
+DrinkL.pack()
+LineDL = Label(f2, text="___________", bg="#292929", fg="Gold")
+LineDL.pack()
+
+DessertL = Label(f3, text="Dessert >>>", bg="#292929", fg="CadetBlue2")
+DessertL.pack()
+LineDtL = Label(f3, text="___________", bg="#292929", fg="Gold")
+LineDtL.pack()
+
+OrderL = Label(f4, text="Beställning!", bg="#292929", fg="CadetBlue1")
+OrderL.pack()
+
+
+
+Beer = orderItem("Öl ", 95, f1)
 Water = orderItem("Vatten", 45, f1)
-Wine = orderItem("Vin       ", 100, f1)
-CocaCola = orderItem("Cola  ", 55, f1)
+Wine = orderItem("Vin", 100, f1)
+CocaCola = orderItem("Cola", 55, f1)
 
-Pizza = orderItem("Pizza ", 75, f2)
-VBiff = orderItem("V.biff   ", 100, f2)
+Pizza = orderItem("Pizza", 75, f2)
+VBiff = orderItem("V.biff", 100, f2)
 Soup = orderItem("Soppa", 60, f2)
-Biff = orderItem("Biff       ", 165, f2)
+Biff = orderItem("Biff", 165, f2)
 
-Pie = orderItem("Paj        ", 65, f3)
-IceCream = orderItem("Glass     ", 55, f3)
+Pie = orderItem("Paj ", 65, f3)
+IceCream = orderItem("Glass", 55, f3)
 Chocolate = orderItem("Choklad", 30, f3)
-Cake = orderItem("Tårta      ", 65, f3)
+Cake = orderItem("Tårta", 65, f3)
 
 def getTotal():
     total = 0
@@ -128,11 +152,11 @@ def getTotal():
         OrderText.delete(0.0, END)
         OrderText.insert(0.0 , formatTotal)
 
-Order = Button(f4, text="Order", command=getTotal)
+Order = Button(f4, text="Order", command=getTotal, bg="#292929", fg="Gold", activeforeground="#292929", activebackground="Gold")
 Order.pack(side=BOTTOM)
 
-OrderText = Text(f4, height=55, width=15)
-OrderText.pack()
+OrderText = Text(f4, height=27, width=20, bg="#292929", fg="Snow2") 
+OrderText.pack(side=BOTTOM)
 OrderText.insert(END, "Order: ")
 
 app.mainloop()
