@@ -8,7 +8,7 @@ app.geometry(size)
 #app.resizable(False, False)
 
 
-class orderableItem:
+class orderItem:
     def __init__(self, name, price, frame, quantity = 0):
         self.name = name
         self.price = price
@@ -61,20 +61,20 @@ f2.pack(side=LEFT)
 f3.pack(side=LEFT)
 f4.pack(side=RIGHT)
 
-Beer = orderableItem("Öl       ", 95, f1)
-Water = orderableItem("Vatten", 45, f1)
-Wine = orderableItem("Vin       ", 100, f1)
-CocaCola = orderableItem("Cola  ", 55, f1)
+Beer = orderItem("Öl       ", 95, f1)
+Water = orderItem("Vatten", 45, f1)
+Wine = orderItem("Vin       ", 100, f1)
+CocaCola = orderItem("Cola  ", 55, f1)
 
-Pizza = orderableItem("Pizza ", 75, f2)
-VBiff = orderableItem("V.biff   ", 100, f2)
-Soup = orderableItem("Soppa", 60, f2)
-Biff = orderableItem("Biff       ", 165, f2)
+Pizza = orderItem("Pizza ", 75, f2)
+VBiff = orderItem("V.biff   ", 100, f2)
+Soup = orderItem("Soppa", 60, f2)
+Biff = orderItem("Biff       ", 165, f2)
 
-Pie = orderableItem("Paj        ", 65, f3)
-IceCream = orderableItem("Glass     ", 55, f3)
-Chocolate = orderableItem("Choklad", 30, f3)
-Cake = orderableItem("Tårta      ", 65, f3)
+Pie = orderItem("Paj        ", 65, f3)
+IceCream = orderItem("Glass     ", 55, f3)
+Chocolate = orderItem("Choklad", 30, f3)
+Cake = orderItem("Tårta      ", 65, f3)
 
 def getTotal():
     total = 0
