@@ -46,8 +46,11 @@ class orderableItem:
             self.quantity = 0
         self.quantityLabel.configure(text=str(self.quantity))
 
+    def getItemtotal(self):
+        return self.quantity * self.price
 
 
+           
 
 
 
@@ -82,8 +85,23 @@ Icecream = orderableItem("Glass", 55, frame3)
 Chocolate = orderableItem("Choklad", 30, frame3)
 Cake = orderableItem("Tårta", 65, frame3)
 
+def getTotal():
+    total = 0
+    total += Beer.getItemtotal()
+    total += Water.getItemtotal()
+    total += Wine.getItemtotal()
+    total += CocaCola.getItemtotal()
+    total += Pizza.getItemtotal()
+    total += VBiff.getItemtotal()
+    total += Soup.getItemtotal()
+    total += Biff.getItemtotal()
+    total += Paj.getItemtotal()
+    total += Icecream.getItemtotal()
+    total += Chocolate.getItemtotal()
+    total += Cake.getItemtotal()
+    print(total)
 
-
-
+Order = tk.Button(frame1, text="Order", command=getTotal)
+Order.pack(side = tk.BOTTOM)
 
 app.mainloop()
