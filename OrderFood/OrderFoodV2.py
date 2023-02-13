@@ -71,7 +71,7 @@ VBiff = orderableItem("V.biff   ", 100, f2)
 Soup = orderableItem("Soppa", 60, f2)
 Biff = orderableItem("Biff       ", 165, f2)
 
-Paj = orderableItem("Paj        ", 65, f3)
+Pie = orderableItem("Paj        ", 65, f3)
 IceCream = orderableItem("Glass     ", 55, f3)
 Chocolate = orderableItem("Choklad", 30, f3)
 Cake = orderableItem("Tårta      ", 65, f3)
@@ -87,7 +87,7 @@ def getTotal():
     total += VBiff.getPriceTotal()
     total += Soup.getPriceTotal()
     total += Biff.getPriceTotal()
-    total += Paj.getPriceTotal()
+    total += Pie.getPriceTotal()
     total += IceCream.getPriceTotal()
     total += Chocolate.getPriceTotal()
     total += Cake.getPriceTotal()
@@ -108,8 +108,8 @@ def getTotal():
         foodNames += Soup.getName() + " \n"
     if Biff.quantity > 0:
         foodNames += Biff.getName() + " \n"
-    if Paj.quantity > 0:
-        foodNames += Paj.getName() + " \n"
+    if Pie.quantity > 0:
+        foodNames += Pie.getName() + " \n"
     if IceCream.quantity > 0:
         foodNames += IceCream.getName() + " \n"
     if Chocolate.quantity > 0:
