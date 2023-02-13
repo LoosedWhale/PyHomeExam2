@@ -48,23 +48,17 @@ class orderableItem:
 
     def getPriceTotal(self):
         return self.quantity * self.price
+    
+    def getName(self):
+        return self.name
 
 
            
 
 
-
-#frame1 = tk.Frame(app)
-#frame1.pack(side = tk.TOP)
-
-
-#frame2 = tk.Frame(app)
-#frame2.pack(side=tk.TOP)
-
-
 frame1 = Frame(app)
 frame2= Frame(app)
-frame3 = Frame(app)
+frame3 = Frame(app) 
 frame4 = Frame(app)
 
 frame1.pack(side=LEFT)
@@ -89,6 +83,7 @@ Cake = orderableItem("Tårta", 65, frame3)
 
 def getTotal():
     total = 0
+    foodNames = ""
     total += Beer.getPriceTotal()
     total += Water.getPriceTotal()
     total += Wine.getPriceTotal()
@@ -101,12 +96,48 @@ def getTotal():
     total += IceCream.getPriceTotal()
     total += Chocolate.getPriceTotal()
     total += Cake.getPriceTotal()
+
+    if Beer.quantity > 0:
+        foodNames += Beer.getName() + " "
+    if Water.quantity > 0:
+        foodNames += Water.getName() + " "
+    if Wine.quantity > 0:
+        foodNames += Wine.getName() + " "
+    if CocaCola.quantity > 0:
+        foodNames += CocaCola.getName() + " "
+    if Pizza.quantity > 0:
+        foodNames += Pizza.getName() + " "
+    if VBiff.quantity > 0:
+        foodNames += VBiff.getName() + " "
+    if Soup.quantity > 0:
+        foodNames += Soup.getName() + " "
+    if Biff.quantity > 0:
+        foodNames += Biff.getName() + " "
+    if Paj.quantity > 0:
+        foodNames += Paj.getName() + " "
+    if IceCream.quantity > 0:
+        foodNames += IceCream.getName() + " "
+    if Chocolate.quantity > 0:
+        foodNames += Chocolate.getName() + " "
+    if Cake.quantity > 0:
+        foodNames += Cake.getName() + " "
+        
+
+    formatTotal = "Total: " + str(total) + " kr"  "\n"+  str(foodNames + " ")
     if total == 0:
         print("Empty order")
+        OrderText.delete(0.0, END)
+        OrderText.insert(0.0 , "Empty order")
     else:
-        print(total)
+        print(formatTotal)
+        OrderText.delete(0.0, END)
+        OrderText.insert(0.0 , formatTotal)
 
-Order = tk.Button(frame4, text="Order", command=getTotal)
-Order.pack()
+Order = Button(frame4, text="Order", command=getTotal)
+Order.pack(side=BOTTOM)
+
+OrderText = Text(frame4, height=10, width=30)
+OrderText.pack()
+OrderText.insert(END, "Order: ")
 
 app.mainloop()
