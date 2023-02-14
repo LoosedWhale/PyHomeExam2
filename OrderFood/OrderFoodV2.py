@@ -9,6 +9,7 @@ app.title("Order Food")
 app.geometry(size)
 app.resizable(False, False)
 app.configure(background=bgc)
+
 class orderItem:
     def __init__(self, name, price, frame, quantity = 0):
         self.name = name
