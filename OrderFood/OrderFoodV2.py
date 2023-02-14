@@ -126,26 +126,26 @@ DessertL.pack()
 OrderL.pack()
 
 
-Beer = orderItem("Öl ", 95, f1)
-Water = orderItem("Vatten", 45, f1)
-Wine = orderItem("Vin", 100, f1)
-CocaCola = orderItem("Cola", 55, f1)
+Pizza = orderItem("Pizza", 75, f1)
+VBiff = orderItem("V.Biff", 100, f1)
+Soup = orderItem("Soppa", 60, f1)
+Biff = orderItem("Biff", 165, f1)
 
-Pizza = orderItem("Pizza", 75, f2)
-VBiff = orderItem("V.biff", 100, f2)
-Soup = orderItem("Soppa", 60, f2)
-Biff = orderItem("Biff", 165, f2)
+Water = orderItem("Vatten", 45, f2)
+CocaCola = orderItem("Cola", 55, f2)
+Beer = orderItem("Öl", 95, f2)
+Wine = orderItem("Vin", 100, f2)
 
-Pie = orderItem("Paj ", 65, f3)
+Pie = orderItem("Paj", 65, f3)
 IceCream = orderItem("Glass", 55, f3)
 Chocolate = orderItem("Choklad", 30, f3)
 Cake = orderItem("Tårta", 65, f3)
 
 Order = Button(f4, text="Order", command=getTotal, bg=bgc, fg=fgc, activeforeground=bgc, activebackground=fgc)
-Order.pack(side=BOTTOM)
-
 OrderText = Text(f4, height=26, width=20, bg=bgc, fg="Snow2") 
-OrderText.pack(side=BOTTOM)
 OrderText.insert(END, "Total: ")
+
+Order.pack(side=BOTTOM)
+OrderText.pack(side=BOTTOM)
 
 app.mainloop()
