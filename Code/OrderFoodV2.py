@@ -62,7 +62,6 @@ def getTotal():
         totalPrice += item.getTotalPrice()
         if item.quantity > 0:
             itemNames += item.getName() + " \n"
-            #Easter egg
             if Beer.quantity == 69:
                 messagebox.askyesno(title="This is the way", message="Kör försiktigt!")
 
